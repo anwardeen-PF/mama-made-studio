@@ -30,33 +30,24 @@ No card data ever touches our server. No webhook is required for this v1 — pay
 
 ## One-time setup
 
-### 1. Cloudflare Pages
+This project deploys as a Cloudflare **Worker with static assets** (the current unified Workers + Pages model), connected to GitHub so every push to `main` auto-deploys via `wrangler deploy`. `wrangler.jsonc` in this repo defines the Worker name, the static-assets binding, and the R2 binding — the dashboard mostly just needs secrets.
 
-1. Push this repo to GitHub (or GitLab).
-2. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git** → select this repo.
-3. Build settings:
-   - Framework preset: **None**
-   - Build command: *(leave blank)*
-   - Build output directory: **`public`**
-4. Deploy. `functions/` is picked up automatically — Cloudflare Pages always looks for it at the repo root regardless of the output directory.
-
-### 2. Stripe
+### 1. Stripe
 
 1. Create an account at https://dashboard.stripe.com/register.
 2. **Developers → API keys** → copy the **Secret key**.
-3. Cloudflare Pages project → **Settings → Environment variables** → add `STRIPE_SECRET_KEY` (mark it **Encrypt**). Set it for both Production and Preview.
+3. Cloudflare dashboard → **Workers & Pages → mama-made-studio → Settings → Variables and Secrets** → add `STRIPE_SECRET_KEY` as a **Secret** (not a plain variable). Set it for Production.
 4. No Stripe Products/Prices need to be pre-created — checkout sessions are built with inline `price_data` straight from `data/products.json`, so the two stay in sync automatically.
 
-### 3. R2 (digital file storage)
+### 2. R2 (digital file storage)
 
-1. Cloudflare dashboard → **R2 → Create bucket** → name it e.g. `mama-made-studio-downloads`.
+1. Cloudflare dashboard → **R2 → Create bucket** → name it **exactly** `mama-made-studio-downloads` (matches `wrangler.jsonc`; the binding is wired automatically on the next deploy — no manual binding step needed).
 2. Upload every file from `products-private/` into that bucket, keeping the same filename — it must match the `file_key` in `data/products.json`.
-3. Pages project → **Settings → Functions → R2 bucket bindings** → add binding variable name `DOWNLOADS` → select the bucket.
-4. Redeploy (or the next deploy will pick up the binding).
+3. Push any small change (or use **Retry build** on the latest deployment) so the Worker picks up the new binding.
 
-### 4. Custom domain
+### 3. Custom domain
 
-Pages project → **Custom domains** → add your domain (must already be on Cloudflare DNS).
+Worker → **Settings → Domains & Routes** → add your domain (must already be on Cloudflare DNS).
 
 ## Adding a new product
 
