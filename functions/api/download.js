@@ -42,10 +42,11 @@ export async function onRequestGet({ request, env }) {
   const object = await env.DOWNLOADS.get(product.file_key);
   if (!object) return new Response('file not found in storage', { status: 404 });
 
+  const downloadFilename = product.file_key.split('/').pop();
   return new Response(object.body, {
     headers: {
       'Content-Type': object.httpMetadata?.contentType || 'application/octet-stream',
-      'Content-Disposition': `attachment; filename="${product.file_key}"`,
+      'Content-Disposition': `attachment; filename="${downloadFilename}"`,
       'Cache-Control': 'private, no-store',
     },
   });
