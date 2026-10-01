@@ -84,6 +84,7 @@ img{max-width:100%;display:block}
 footer{background:var(--ink);color:var(--cream);padding:40px max(24px,calc((100vw - var(--max))/2));
   display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
 footer .muted{color:#c9b9a9}
+footer .muted a{text-decoration:underline}
 
 .downloads-grid{grid-template-columns:repeat(2,1fr)}
 .download-link{text-align:center;text-decoration:none;display:block}
