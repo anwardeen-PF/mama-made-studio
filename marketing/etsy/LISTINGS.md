@@ -1,6 +1,13 @@
 # Etsy Listings — Mama Made Studio (shop name: MamaMadeStudioGoods)
 
-For each product: create a new listing → Digital download → upload the matching image from `images/` as the photo, and the matching file from `products-private/` (one directory up from `marketing/`) as the digital file buyers receive. Copy/paste the rest below.
+For each product: create a new listing → Digital download → upload the matching photos from `images/` (3 per product — main shot, lifestyle/sticker-sheet mockup, and an info card) and the matching video from `videos/`, plus the matching file from `products-private/` (one directory up from `marketing/`) as the digital file buyers receive. Copy/paste the rest below.
+
+**Photos per product (upload all 3, in this order):**
+- `images/<name>.jpg` — main product shot
+- `images/<name>-2.jpg` — lifestyle mockup (framed-on-wall for prints, sticker sheet for stickers)
+- `images/<name>-3.jpg` — info card (what's included, format, use)
+
+**Video per product:** `videos/<name>.mp4` (~5.6s, crossfades through all 3 photos — Etsy allows up to 2 videos, 3–15 seconds each)
 
 ---
 
