@@ -41,7 +41,7 @@ This project deploys as a Cloudflare **Worker with static assets** (the current 
 
 ### 2. R2 (digital file storage)
 
-1. Cloudflare dashboard → **R2 → Create bucket** → name it **exactly** `mama-made-studio-downloads` (matches `wrangler.jsonc`; the binding is wired automatically on the next deploy — no manual binding step needed).
+1. Cloudflare dashboard → **R2 → Create bucket** → name it **exactly** `mms-studio-downloads-pf2026` (matches `wrangler.jsonc`; the binding is wired automatically on the next deploy — no manual binding step needed). R2 bucket names are globally unique across all Cloudflare accounts, so if this one's ever taken too, pick another and tell me — I'll update `wrangler.jsonc` to match.
 2. Upload every file from `products-private/` into that bucket, keeping the same filename — it must match the `file_key` in `data/products.json`.
 3. Push any small change (or use **Retry build** on the latest deployment) so the Worker picks up the new binding.
 
