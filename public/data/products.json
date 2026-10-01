@@ -1,0 +1,42 @@
+{
+  "schema": "mama-made-studio/products/v1",
+  "currency": "usd",
+  "products": [
+    {
+      "id": "sunshine-daisy",
+      "name": "Sunshine Daisy Sticker Sheet",
+      "tagline": "A cheerful daisy sticker sheet for planners, water bottles, and lunchboxes.",
+      "price_cents": 350,
+      "image": "/assets/products/sunshine-daisy.svg",
+      "file_key": "sunshine-daisy.svg",
+      "tags": ["sticker", "floral", "kids"]
+    },
+    {
+      "id": "little-whale",
+      "name": "Little Whale Nursery Print",
+      "tagline": "A sweet watercolor-style whale print to soften any nursery wall.",
+      "price_cents": 600,
+      "image": "/assets/products/little-whale.svg",
+      "file_key": "little-whale.svg",
+      "tags": ["print", "nursery", "animal"]
+    },
+    {
+      "id": "rainbow-cloud",
+      "name": "Rainbow Cloud Sticker Pack",
+      "tagline": "A pastel rainbow cloud sticker, perfect for journals and party favors.",
+      "price_cents": 350,
+      "image": "/assets/products/rainbow-cloud.svg",
+      "file_key": "rainbow-cloud.svg",
+      "tags": ["sticker", "rainbow", "kids"]
+    },
+    {
+      "id": "boho-moon",
+      "name": "Boho Moon & Stars Print",
+      "tagline": "A sleepy terracotta moon print for a calm, boho nursery or reading nook.",
+      "price_cents": 400,
+      "image": "/assets/products/boho-moon.svg",
+      "file_key": "boho-moon.svg",
+      "tags": ["print", "boho", "moon"]
+    }
+  ]
+}

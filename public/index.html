@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Mama Made Studio — cute digital stickers and printable art, made for moms, delivered instantly.">
+  <meta name="theme-color" content="#fff8ec">
+  <title>Mama Made Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script defer src="/assets/cart.js"></script>
+  <script defer src="/assets/site.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">
+      <span class="brand-mark">🌼</span>
+      <span>Mama Made Studio</span>
+    </a>
+    <nav class="site-nav">
+      <span class="nav-links">
+        <a href="#shop">Shop</a>
+        <a href="#how">How it works</a>
+      </span>
+      <button class="cart-button" type="button" id="cart-open">
+        Cart <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">CUTE · INSTANT · PRINTABLE</p>
+      <h1>Sweet digital stickers &amp; prints, made by a mom.</h1>
+      <p>Download in seconds. Print at home or at your favorite shop. No waiting for shipping, no plastic to toss.</p>
+    </section>
+
+    <section id="shop" class="section">
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <section id="how" class="how-it-works">
+      <div class="how-grid">
+        <div>
+          <span>1</span>
+          <h3>Add to cart</h3>
+          <p>Pick your favorite stickers and prints — mix and match.</p>
+        </div>
+        <div>
+          <span>2</span>
+          <h3>Checkout securely</h3>
+          <p>Pay safely by card through Stripe. We never see your card details.</p>
+        </div>
+        <div>
+          <span>3</span>
+          <h3>Download instantly</h3>
+          <p>Your files are ready right after checkout — print as many times as you like.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="scrim" id="scrim"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+    <div class="cart-drawer-head">
+      <h2>Your cart</h2>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total">$0.00</span></div>
+      <button class="checkout-btn" id="checkout-btn" disabled>Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <div>
+      <strong>Mama Made Studio</strong>
+      <p class="muted">Cute stickers &amp; printable art, made with love.</p>
+    </div>
+    <div class="muted">Instant digital delivery · Secure checkout via Stripe</div>
+  </footer>
+</body>
+</html>

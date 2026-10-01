@@ -1,0 +1,81 @@
+# Mama Made Studio
+
+A self-hosted storefront for cute digital stickers and printable art, built for Cloudflare Pages. Static front-end, serverless checkout via Stripe, instant digital delivery via Cloudflare R2.
+
+## How it works
+
+```text
+Shopper browses /            (static site, product grid from data/products.json)
+        |
+        v
+Adds to cart (localStorage), clicks Checkout
+        |
+        v
+POST /api/create-checkout-session   (Pages Function, re-prices from our own catalog)
+        |
+        v
+Stripe-hosted Checkout page (card entered on Stripe's domain, never ours)
+        |
+        v
+Redirect to /success.html?session_id=...
+        |
+        v
+GET /api/order-status                (verifies payment_status === 'paid' with Stripe)
+        |
+        v
+GET /api/download?session_id=...&product=...   (re-verifies, then streams file from R2)
+```
+
+No card data ever touches our server. No webhook is required for this v1 — payment is confirmed synchronously when the success page loads by asking Stripe directly.
+
+## One-time setup
+
+### 1. Cloudflare Pages
+
+1. Push this repo to GitHub (or GitLab).
+2. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git** → select this repo.
+3. Build settings:
+   - Framework preset: **None**
+   - Build command: *(leave blank)*
+   - Build output directory: **`public`**
+4. Deploy. `functions/` is picked up automatically — Cloudflare Pages always looks for it at the repo root regardless of the output directory.
+
+### 2. Stripe
+
+1. Create an account at https://dashboard.stripe.com/register.
+2. **Developers → API keys** → copy the **Secret key**.
+3. Cloudflare Pages project → **Settings → Environment variables** → add `STRIPE_SECRET_KEY` (mark it **Encrypt**). Set it for both Production and Preview.
+4. No Stripe Products/Prices need to be pre-created — checkout sessions are built with inline `price_data` straight from `data/products.json`, so the two stay in sync automatically.
+
+### 3. R2 (digital file storage)
+
+1. Cloudflare dashboard → **R2 → Create bucket** → name it e.g. `mama-made-studio-downloads`.
+2. Upload every file from `products-private/` into that bucket, keeping the same filename — it must match the `file_key` in `data/products.json`.
+3. Pages project → **Settings → Functions → R2 bucket bindings** → add binding variable name `DOWNLOADS` → select the bucket.
+4. Redeploy (or the next deploy will pick up the binding).
+
+### 4. Custom domain
+
+Pages project → **Custom domains** → add your domain (must already be on Cloudflare DNS).
+
+## Adding a new product
+
+1. Design the art, export it (SVG/PNG/PDF — whatever format you're selling).
+2. Drop the public-facing preview image in `public/assets/products/`.
+3. Drop the actual deliverable file in `products-private/`, then upload it to the R2 bucket.
+4. Add an entry to `public/data/products.json` with a unique `id`, `price_cents`, `image` (the preview), and `file_key` (must match the R2 object key exactly).
+
+No code changes needed — the storefront and checkout both read from that one JSON file.
+
+## Security notes
+
+- Checkout prices are always re-computed server-side from `data/products.json` — a tampered client request can't change what's charged.
+- `/api/download` re-verifies the Stripe session and checks the requested product was actually part of that paid order before streaming anything.
+- `products-private/` and `functions/` are never part of the Pages build output (`public/`), so the real deliverable files and server code are never served as static assets.
+- Secrets (`STRIPE_SECRET_KEY`) live only in Cloudflare's encrypted environment variables — never commit them to this repo.
+
+## Later / not yet wired up
+
+- Stripe webhook for handling delayed payment methods (bank debits, etc.) — current flow assumes card payments that confirm instantly.
+- Email receipt with download links (currently the only copy of the links is the success page itself).
+- Etsy cross-listing (separate from this codebase — just listing copy/mockups using the same product art).
