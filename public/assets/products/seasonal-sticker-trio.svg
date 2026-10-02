@@ -1,0 +1,29 @@
+<svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="400" fill="#fffaf3"/>
+<g transform="translate(0 40) scale(.9)">
+    <path d="M200 120 q8 -30 28 -34" fill="none" stroke="#7a9a63" stroke-width="10" stroke-linecap="round"/>
+    <ellipse cx="150" cy="235" rx="70" ry="85" fill="#f4a15d" stroke="#d98443" stroke-width="5"/>
+    <ellipse cx="250" cy="235" rx="70" ry="85" fill="#f4a15d" stroke="#d98443" stroke-width="5"/>
+    <ellipse cx="200" cy="235" rx="55" ry="90" fill="#f7b574" stroke="#d98443" stroke-width="5"/>
+    <circle cx="180" cy="225" r="6" fill="#3d4d55"/>
+    <circle cx="220" cy="225" r="6" fill="#3d4d55"/>
+    <path d="M180 240 Q 200 253 220 240" fill="none" stroke="#3d4d55" stroke-width="5" stroke-linecap="round"/>
+</g><g transform="translate(400 40) scale(.9)">
+    <path d="M120 300 V190 a80 80 0 0 1 160 0 V300 l-27 -22 -26 22 -27 -22 -27 22 -26 -22 Z" fill="#ffffff" stroke="#cfc8e6" stroke-width="5"/>
+    <ellipse cx="155" cy="240" rx="12" ry="7" fill="#f6c1cf" opacity=".7"/>
+    <ellipse cx="245" cy="240" rx="12" ry="7" fill="#f6c1cf" opacity=".7"/>
+    <circle cx="180" cy="205" r="6" fill="#3d4d55"/>
+    <circle cx="220" cy="205" r="6" fill="#3d4d55"/>
+    <path d="M180 220 Q 200 233 220 220" fill="none" stroke="#3d4d55" stroke-width="5" stroke-linecap="round"/>
+</g><g transform="translate(800 40) scale(.9)">
+    <circle cx="200" cy="285" r="75" fill="#ffffff" stroke="#c5dcea" stroke-width="5"/>
+    <circle cx="200" cy="190" r="55" fill="#ffffff" stroke="#c5dcea" stroke-width="5"/>
+    <rect x="160" y="125" width="80" height="12" rx="4" fill="#3d4d55"/>
+    <rect x="175" y="85" width="50" height="45" rx="5" fill="#3d4d55"/>
+    <path d="M150 232 q50 22 100 0" fill="none" stroke="#e0707a" stroke-width="14" stroke-linecap="round"/>
+    <path d="M200 190 l34 7 -34 7 Z" fill="#f4a15d"/>
+    <circle cx="180" cy="178" r="5" fill="#3d4d55"/>
+    <circle cx="220" cy="178" r="5" fill="#3d4d55"/>
+    <circle cx="200" cy="270" r="5" fill="#3d4d55"/><circle cx="200" cy="295" r="5" fill="#3d4d55"/>
+</g>
+</svg>

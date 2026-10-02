@@ -9,7 +9,11 @@
       "price_cents": 350,
       "image": "/assets/products/sunshine-daisy.svg",
       "file_key": "products-private/sunshine-daisy.svg",
-      "tags": ["sticker", "floral", "kids"]
+      "tags": [
+        "sticker",
+        "floral",
+        "kids"
+      ]
     },
     {
       "id": "little-whale",
@@ -18,7 +22,11 @@
       "price_cents": 600,
       "image": "/assets/products/little-whale.svg",
       "file_key": "products-private/little-whale.svg",
-      "tags": ["print", "nursery", "animal"]
+      "tags": [
+        "print",
+        "nursery",
+        "animal"
+      ]
     },
     {
       "id": "rainbow-cloud",
@@ -27,7 +35,11 @@
       "price_cents": 350,
       "image": "/assets/products/rainbow-cloud.svg",
       "file_key": "products-private/rainbow-cloud.svg",
-      "tags": ["sticker", "rainbow", "kids"]
+      "tags": [
+        "sticker",
+        "rainbow",
+        "kids"
+      ]
     },
     {
       "id": "boho-moon",
@@ -36,7 +48,63 @@
       "price_cents": 400,
       "image": "/assets/products/boho-moon.svg",
       "file_key": "products-private/boho-moon.svg",
-      "tags": ["print", "boho", "moon"]
+      "tags": [
+        "print",
+        "boho",
+        "moon"
+      ]
+    },
+    {
+      "id": "cozy-pumpkin",
+      "name": "Cozy Pumpkin Sticker",
+      "tagline": "A smiling pumpkin sticker for fall planners, lunchboxes, and party favors.",
+      "price_cents": 350,
+      "image": "/assets/products/cozy-pumpkin.svg",
+      "file_key": "products-private/cozy-pumpkin.svg",
+      "tags": [
+        "sticker",
+        "halloween",
+        "fall"
+      ]
+    },
+    {
+      "id": "friendly-ghost",
+      "name": "Friendly Ghost Sticker",
+      "tagline": "A blushing little ghost that's more cute than spooky.",
+      "price_cents": 350,
+      "image": "/assets/products/friendly-ghost.svg",
+      "file_key": "products-private/friendly-ghost.svg",
+      "tags": [
+        "sticker",
+        "halloween",
+        "kids"
+      ]
+    },
+    {
+      "id": "snowy-snowman",
+      "name": "Snowy Snowman Sticker",
+      "tagline": "A cozy snowman sticker for holiday cards, gift tags, and journals.",
+      "price_cents": 350,
+      "image": "/assets/products/snowy-snowman.svg",
+      "file_key": "products-private/snowy-snowman.svg",
+      "tags": [
+        "sticker",
+        "christmas",
+        "winter"
+      ]
+    },
+    {
+      "id": "seasonal-sticker-trio",
+      "name": "Seasonal Sticker Trio",
+      "tagline": "Pumpkin, ghost, and snowman together \u2014 three seasonal stickers, one download.",
+      "price_cents": 800,
+      "image": "/assets/products/seasonal-sticker-trio.svg",
+      "file_key": "products-private/seasonal-sticker-trio.svg",
+      "tags": [
+        "bundle",
+        "sticker",
+        "seasonal"
+      ]
     }
   ]
 }

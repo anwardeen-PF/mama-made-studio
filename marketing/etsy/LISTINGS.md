@@ -215,3 +215,29 @@ For personal use only. Please don't resell or redistribute the file itself.
 - **Shop policies:** Etsy will ask you to set a returns/exchange policy for digital items — standard practice is "no returns/exchanges on digital downloads" since the buyer can't un-download a file.
 - **Etsy fees to expect:** $0.20 listing fee per item (renews every 4 months or on each sale), 6.5% transaction fee, ~3% + $0.25 payment processing. Price accordingly — the prices above already assume these fees.
 - **Shop announcement / About section:** once the first listing or two are live, tell me and I'll write the shop's "About" story and announcement banner copy too.
+
+---
+
+# Q4 Seasonal Listings (new)
+
+Same upload steps as above. Photos/mockups for these still need to be made (use the `renders/` templates). The deliverable files are in `../../products-private/`.
+
+## 5. Cozy Pumpkin Sticker — $3.50 — `cozy-pumpkin.svg`
+**Title:** Pumpkin Sticker PNG | Cute Fall Clipart Digital Download | Halloween Planner Sticker Printable | Kids Fall Sticker
+**Tags:** pumpkin sticker, fall clipart, halloween sticker, planner sticker, printable sticker, cute pumpkin png, digital download, kids sticker, fall planner, journal sticker, instant download, autumn clipart, mom shop
+**Description:** A smiling pumpkin sticker design. Instant digital download, ready to print at home. Perfect for fall planners, lunchboxes, party favors, and classroom treats. DIGITAL FILE, nothing ships. Personal use only; please don't resell or redistribute the file.
+
+## 6. Friendly Ghost Sticker — $3.50 — `friendly-ghost.svg`
+**Title:** Cute Ghost Sticker PNG | Friendly Halloween Clipart Digital Download | Kids Halloween Printable | Not Scary Ghost
+**Tags:** ghost sticker, halloween clipart, cute ghost png, kids halloween, printable sticker, planner sticker, digital download, halloween printable, instant download, spooky cute, party favor, journal sticker, mom shop
+**Description:** A blushing, not-scary little ghost. Instant digital download for Halloween party favors, treat bags, planners, and journals. DIGITAL FILE, nothing ships. Personal use only.
+
+## 7. Snowy Snowman Sticker — $3.50 — `snowy-snowman.svg`
+**Title:** Snowman Sticker PNG | Christmas Clipart Digital Download | Holiday Gift Tag Printable | Winter Planner Sticker
+**Tags:** snowman sticker, christmas clipart, gift tag printable, winter sticker, holiday sticker, planner sticker, printable sticker, digital download, instant download, cute snowman, christmas planner, kids sticker, mom shop
+**Description:** A cozy snowman sticker design. Instant download for holiday cards, gift tags, planners, and journals. DIGITAL FILE, nothing ships. Personal use only.
+
+## 8. Seasonal Sticker Trio (bundle) — $8.00 — `seasonal-sticker-trio.svg`
+**Title:** Seasonal Sticker Bundle | Pumpkin Ghost Snowman Clipart | Halloween Christmas Printable Stickers | Digital Download
+**Tags:** sticker bundle, seasonal stickers, halloween sticker, christmas sticker, printable sticker, planner sticker, digital download, clipart bundle, instant download, kids sticker, holiday bundle, journal sticker, mom shop
+**Description:** Three seasonal designs in one download: pumpkin, ghost, and snowman. Save over buying them separately. DIGITAL FILE, nothing ships. Personal use only.
