@@ -4,9 +4,9 @@
 // directory, so this script does the routing by hand and falls back to
 // serving the static site for everything else.
 
-import { onRequestPost as createCheckoutSession } from '../functions/api/create-checkout-session.js';
-import { onRequestGet as orderStatus } from '../functions/api/order-status.js';
-import { onRequestGet as downloadFile } from '../functions/api/download.js';
+import { onRequestPost as createCheckoutSession } from './api/create-checkout-session.js';
+import { onRequestGet as orderStatus } from './api/order-status.js';
+import { onRequestGet as downloadFile } from './api/download.js';
 
 export default {
   async fetch(request, env, ctx) {

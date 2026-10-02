@@ -1,6 +1,6 @@
 # Mama Made Studio
 
-A self-hosted storefront for cute digital stickers and printable art, built for Cloudflare Pages. Static front-end, serverless checkout via Stripe, instant digital delivery via Cloudflare R2.
+A self-hosted storefront for cute digital stickers and printable art, built on Cloudflare Workers (static assets + R2). Static front-end, serverless checkout via Stripe, instant digital delivery via Cloudflare R2.
 
 ## How it works
 
@@ -11,7 +11,7 @@ Shopper browses /            (static site, product grid from data/products.json)
 Adds to cart (localStorage), clicks Checkout
         |
         v
-POST /api/create-checkout-session   (Pages Function, re-prices from our own catalog)
+POST /api/create-checkout-session   (Worker route, re-prices from our own catalog)
         |
         v
 Stripe-hosted Checkout page (card entered on Stripe's domain, never ours)
@@ -62,7 +62,7 @@ No code changes needed — the storefront and checkout both read from that one J
 
 - Checkout prices are always re-computed server-side from `data/products.json` — a tampered client request can't change what's charged.
 - `/api/download` re-verifies the Stripe session and checks the requested product was actually part of that paid order before streaming anything.
-- `products-private/` and `functions/` are never part of the Pages build output (`public/`), so the real deliverable files and server code are never served as static assets.
+- `products-private/` and `src/` are never part of the static assets directory (`public/`), so the real deliverable files and server code are never served as static assets.
 - Secrets (`STRIPE_SECRET_KEY`) live only in Cloudflare's encrypted environment variables — never commit them to this repo.
 
 ## Later / not yet wired up

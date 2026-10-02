@@ -1,4 +1,4 @@
-// Cloudflare Pages Function: POST /api/create-checkout-session
+// Worker route handler (wired up in src/worker.js): POST /api/create-checkout-session
 // Builds a Stripe Checkout Session from the client's cart, re-pricing every
 // item from our own catalog so a tampered client request can't change price.
 
