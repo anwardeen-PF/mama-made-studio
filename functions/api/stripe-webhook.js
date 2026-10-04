@@ -37,7 +37,7 @@ async function sendReceipt(session, request, env) {
   if (!to) return;
   if (!env.RESEND_API_KEY || !env.EMAIL_FROM) throw new Error('email provider not configured');
 
-  // Stripe retries and fires two event types for one order: send only once.
+  // Cheap early exit; Resend's Idempotency-Key below covers races and partial failures.
   const sentKey = `receipt:${session.id}`;
   if (env.SUBSCRIBERS && (await env.SUBSCRIBERS.get(sentKey))) return;
 
@@ -70,7 +70,12 @@ async function sendReceipt(session, request, env) {
 
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+      // Resend dedupes on this key, so concurrent or retried deliveries send once.
+      'Idempotency-Key': `receipt-${session.id}`,
+    },
     body: JSON.stringify({
       from: env.EMAIL_FROM,
       to,
@@ -86,9 +91,11 @@ async function sendReceipt(session, request, env) {
 
 async function verifySignature(payload, header, secret) {
   if (!header) return false;
-  const parts = Object.fromEntries(header.split(',').map((kv) => kv.split('=')));
-  const timestamp = parts.t;
-  if (!timestamp || !parts.v1) return false;
+  // Stripe sends several v1 entries while a signing secret is being rolled.
+  const entries = header.split(',').map((kv) => kv.split('='));
+  const timestamp = entries.find(([k]) => k === 't')?.[1];
+  const signatures = entries.filter(([k]) => k === 'v1').map(([, v]) => v);
+  if (!timestamp || signatures.length === 0) return false;
   if (Math.abs(Date.now() / 1000 - Number(timestamp)) > TOLERANCE_SECONDS) return false;
 
   const key = await crypto.subtle.importKey(
@@ -100,7 +107,7 @@ async function verifySignature(payload, header, secret) {
   );
   const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${timestamp}.${payload}`));
   const expected = [...new Uint8Array(sig)].map((b) => b.toString(16).padStart(2, '0')).join('');
-  return timingSafeEqual(expected, parts.v1);
+  return signatures.some((sig) => timingSafeEqual(expected, sig));
 }
 
 function timingSafeEqual(a, b) {
