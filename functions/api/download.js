@@ -45,7 +45,9 @@ export async function onRequestGet({ request, env }) {
   const downloadFilename = product.file_key.split('/').pop();
   return new Response(object.body, {
     headers: {
-      'Content-Type': object.httpMetadata?.contentType || 'application/octet-stream',
+      'Content-Type': product.file_key.toLowerCase().endsWith('.zip')
+        ? 'application/zip'
+        : object.httpMetadata?.contentType || 'application/octet-stream',
       'Content-Disposition': `attachment; filename="${downloadFilename}"`,
       'Cache-Control': 'private, no-store',
     },
