@@ -15,5 +15,13 @@
       "binding": "DOWNLOADS",
       "bucket_name": "mama-made-studio-downloads"
     }
-  ]
+  ],
+  "previews": {
+    "r2_buckets": [
+      {
+        "binding": "DOWNLOADS",
+        "bucket_name": "mama-made-studio-downloads-preview"
+      }
+    ]
+  }
 }
