@@ -7,6 +7,8 @@
 import { onRequestPost as createCheckoutSession } from '../functions/api/create-checkout-session.js';
 import { onRequestGet as orderStatus } from '../functions/api/order-status.js';
 import { onRequestGet as downloadFile } from '../functions/api/download.js';
+import { onRequestPost as stripeWebhook } from '../functions/api/stripe-webhook.js';
+import { onRequestPost as subscribe } from '../functions/api/subscribe.js';
 
 export default {
   async fetch(request, env, ctx) {
@@ -21,6 +23,13 @@ export default {
     }
     if (pathname === '/api/download' && request.method === 'GET') {
       return downloadFile(ctxArg);
+    }
+
+    if (pathname === '/api/stripe-webhook' && request.method === 'POST') {
+      return stripeWebhook(ctxArg);
+    }
+    if (pathname === '/api/subscribe' && request.method === 'POST') {
+      return subscribe(ctxArg);
     }
 
     return env.ASSETS.fetch(request);
