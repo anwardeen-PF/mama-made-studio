@@ -49,6 +49,13 @@ This project deploys as a Cloudflare **Worker with static assets** (the current 
 
 Worker → **Settings → Domains & Routes** → add your domain (must already be on Cloudflare DNS).
 
+### 4. Receipt emails and mailing list
+
+1. Create a [Resend](https://resend.com) account, verify your sending domain, and create an API key.
+2. Stripe dashboard → **Developers → Webhooks → Add endpoint**: `https://<your-domain>/api/stripe-webhook`, events `checkout.session.completed` and `checkout.session.async_payment_succeeded`. Copy the signing secret.
+3. Cloudflare → Worker → **Settings → Variables and Secrets**: add secrets `STRIPE_WEBHOOK_SECRET` and `RESEND_API_KEY`, and variables `EMAIL_FROM` (e.g. `Mama Made Studio <orders@yourdomain.com>`) and optionally `EMAIL_REPLY_TO`.
+4. The `SUBSCRIBERS` KV namespace is created automatically on the next deploy. Signups are stored as `sub:<email>` keys; export them from **Workers & Pages → KV**.
+
 ## Adding a new product
 
 1. Design the art, export it (SVG/PNG/PDF — whatever format you're selling).
@@ -67,6 +74,4 @@ No code changes needed — the storefront and checkout both read from that one J
 
 ## Later / not yet wired up
 
-- Stripe webhook for handling delayed payment methods (bank debits, etc.) — current flow assumes card payments that confirm instantly.
-- Email receipt with download links (currently the only copy of the links is the success page itself).
 - Etsy cross-listing (separate from this codebase — just listing copy/mockups using the same product art).

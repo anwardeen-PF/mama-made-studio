@@ -96,3 +96,7 @@ footer .muted a{text-decoration:underline}
 @media(max-width:560px){
   .site-nav .nav-links{display:none}
 }
+.signup{margin-top:16px;max-width:360px}
+.signup-row{display:flex;gap:8px;margin-top:6px}
+.signup-row input{flex:1;min-width:0;padding:8px 12px;border-radius:999px;border:1px solid var(--line);font:inherit}
+.signup-row .add-btn{padding:8px 16px;cursor:pointer}

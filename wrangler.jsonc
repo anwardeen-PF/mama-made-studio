@@ -10,6 +10,11 @@
     "directory": "public",
     "binding": "ASSETS"
   },
+  "kv_namespaces": [
+    {
+      "binding": "SUBSCRIBERS"
+    }
+  ],
   "r2_buckets": [
     {
       "binding": "DOWNLOADS",

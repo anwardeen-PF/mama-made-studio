@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="/assets/styles.css">
   <script defer src="/assets/cart.js"></script>
   <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/signup.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -96,6 +97,14 @@
       <p class="muted">Cute stickers &amp; printable art, made with love.</p>
     </div>
     <div class="muted">Instant digital delivery · Secure checkout via Stripe · <a href="https://www.etsy.com/shop/MamaMadeStudioGoods" target="_blank" rel="noopener">Also on Etsy</a></div>
+    <form class="signup" data-signup>
+      <label for="signup-email"><strong>Get new designs &amp; freebies</strong></label>
+      <div class="signup-row">
+        <input id="signup-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+        <button class="add-btn" type="submit">Subscribe</button>
+      </div>
+      <p class="muted signup-msg" role="status"></p>
+    </form>
   </footer>
 </body>
 </html>
