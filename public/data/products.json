@@ -37,6 +37,15 @@
       "image": "/assets/products/boho-moon.svg",
       "file_key": "products-private/boho-moon.svg",
       "tags": ["print", "boho", "moon"]
+    },
+    {
+      "id": "sticker-starter-bundle",
+      "name": "Sticker Starter Bundle",
+      "tagline": "Six cheerful pastel stickers for planners, water bottles, and lunchboxes.",
+      "price_cents": 1000,
+      "image": "/assets/products/sticker-starter-bundle.svg",
+      "file_key": "products-private/sticker-starter-bundle.zip",
+      "tags": ["sticker", "bundle", "kids"]
     }
   ]
 }
